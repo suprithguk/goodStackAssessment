@@ -1,0 +1,395 @@
+1. Write a program called ip_print to print out IP addresses.
+The program takes a single command line argument, FILENAME which is the name of
+the file containing some JSON data that contains the IP addresses.
+
+NB: We would ideally like the program to be written in Python3. However we will also
+accept answers in Java or in C++. Please ensure you detail how you have compiled the
+program if that is the language you choose.
+
+Your program must print out the IP addresses, which are the values of
+all of the keys inside the "value" object one per line. If the file also contains
+a "network" object, then you should also print out a second IP address on the same line
+that corresponds to the same "name".
+
+Two example files are given called input1.json and input2.json.
+The expected outputs are:
+
+$ ip_print input1.json
+192.168.101.101
+192.168.101.70
+192.168.101.153
+
+$ ip_print input2.json
+192.168.102.33 10.0.0.87
+192.168.103.74 10.0.0.77
+192.168.102.155 10.0.0.99
+
+Your program must also exit with suitable return codes.
+It should do error handling for all types of invalid inputs.
+You will be scored on how well you handle these error cases.
+
+2. Write tests using Robot framework to test ip_print. It should test running it against input1.json, input2.json as well as error cases.
+
+3. Write a Jenkins declarative pipeline that contains two stages called input1 and input2.
+Each stage should run ip_print with the example file corresponding to the stages' name.
+
+The pipeline should check out the program and the input files out of a git repository.
+You do not need to provide access to a real git repository.
+
+
+virtualenv venv && . venv/bin/activate && 
+
+*** Variables ***
+${SCRIPT}     ip_print.py
+${INPUT1}     input1.json
+${INPUT2}     input2.json
+${NON_EXISTENT_FILE}  non_existent.json
+${MALFORMED_JSON}     malformed.json
+
+
+Responsibilities:
+The successful candidate will be responsible for delivering high quality automated tests and test frameworks.
+Embedded within an Agile team, you will contribute to requirement capture and design reviews to ensure that quality is built into the product.
+Work alongside developers to write high quality tests.
+Perform exploratory testing and implement manual test plans.
+Monitor nightly regression and continuous integration tests including initial test failure analysis.
+
+Required Skills and Experience :
+Proficient in testing both Linux and Windows applications, or alternatively, experienced in testing embedded software.
+Confident with the Linux command line.
+Experience with a programmable CI system, ideally Jenkins.
+Proficient in Python, or an alternative scripting language.
+Good communication and interpersonal skills.
+
+“Nice To Have” Skills and Experience :
+Expericence in testing User Interfaces and usability
+Experience of writing tests using the Robot Framework
+A good understanding of Java or C++
+An understanding of cloud platforms (eg AWS, GCP, Azure)
+Experience using Kubernetes and Docker
+Awareness of embedded debug tools like Arm Development Studio and the DSTREAM family of JTAG/SWD debug probes
+
+
+
+
+Generative AI (GenAI) has significantly impacted and revolutionized software testing by introducing new capabilities, automating labor-intensive tasks, and enhancing the overall testing process. Here are several key ways GenAI has revolutionized software testing:
+
+1. Automated Test Case Generation
+
+	•	Dynamic Test Case Creation: GenAI can analyze requirements, user stories, or existing codebases to automatically generate comprehensive test cases, including edge cases that a human tester might overlook. This significantly reduces the time required to create test cases and ensures broader test coverage.
+	•	Behavioral Testing: By understanding natural language requirements or behavioral specifications, GenAI models can create test cases that more accurately reflect real-world scenarios, improving the relevance and effectiveness of tests.
+
+2. Enhanced Test Automation
+
+	•	Self-Healing Test Scripts: GenAI can identify and correct broken or flaky test scripts by understanding changes in the application under test (AUT). When the UI or APIs of an application change, GenAI-based tools can automatically adapt existing test cases to these changes without human intervention, reducing maintenance efforts.
+	•	Intelligent Test Execution: GenAI can predict which test cases are most likely to find new defects based on historical data, code changes, or patterns of past failures. This allows for smarter, risk-based test execution, focusing resources on the most impactful areas.
+
+3. Improved Defect Detection and Debugging
+
+	•	Anomaly Detection: GenAI models, particularly those based on machine learning, can identify anomalous behavior in applications that may indicate defects. These models learn from past data to flag issues that traditional rule-based systems might miss.
+	•	Root Cause Analysis: GenAI can assist in identifying the root cause of defects faster by analyzing logs, code, and system behavior. It can correlate different data points to pinpoint the exact failure point and provide recommendations for resolution.
+
+4. Natural Language Processing (NLP) for Testing
+
+	•	Requirement Analysis and Test Coverage: Using NLP, GenAI can analyze natural language requirements or user stories and automatically suggest or generate test cases. It can also identify missing requirements, ambiguous statements, or inconsistencies in the documentation.
+	•	Chatbot-Based Test Execution: GenAI-driven chatbots can help testers execute tests, gather results, and log defects through conversational interfaces, making the testing process more intuitive and accessible.
+
+5. Advanced Test Data Generation
+
+	•	Synthetic Data Generation: GenAI can generate synthetic test data that mimics real-world data patterns, which is crucial for testing in environments where data privacy is a concern, such as healthcare or finance. This data can be tailored to cover specific edge cases or scenarios that are difficult to replicate with real data.
+	•	Data Augmentation: AI models can augment existing datasets by generating variations that help improve test coverage, ensuring that applications perform well under various data conditions.
+
+6. Continuous Testing in CI/CD Pipelines
+
+	•	Real-Time Testing Feedback: GenAI tools can provide real-time insights and feedback during continuous integration and delivery (CI/CD) pipelines. They can analyze code changes, predict potential areas of failure, and prioritize tests dynamically, reducing the overall testing time and accelerating release cycles.
+	•	Automated Test Orchestration: By learning from past test executions, GenAI can optimize test execution order, balancing fast feedback with comprehensive coverage and minimizing test execution time.
+
+7. Test Case Optimization and Maintenance
+
+	•	Optimizing Test Suites: GenAI can identify redundant or overlapping test cases and suggest optimizations, ensuring that the test suite remains efficient and manageable. This reduces the overall time required for testing while maintaining high-quality standards.
+	•	Test Impact Analysis: AI models can analyze which parts of an application are affected by recent code changes and recommend a targeted set of tests to execute, reducing unnecessary testing and accelerating the feedback loop.
+
+8. Improving Security Testing
+
+	•	Automated Security Testing: GenAI can enhance security testing by automatically generating security test cases, such as fuzzing inputs or testing for known vulnerabilities like SQL injection or cross-site scripting (XSS). It can simulate sophisticated attack patterns that human testers might not think of.
+	•	AI-Powered Vulnerability Scanning: GenAI models can analyze code, configurations, and infrastructure to detect potential vulnerabilities more effectively and suggest remediation actions, reducing the risk of security breaches.
+
+9. Enhanced User Experience (UX) Testing
+
+	•	Visual Testing: GenAI can automate visual testing of applications by comparing screenshots or video frames to identify differences or anomalies. It can recognize subtle changes that might affect the user experience but are hard for automated scripts to detect.
+	•	User Journey Mapping: By analyzing user behavior data, GenAI can help testers understand real user journeys and create tests that better represent actual user interactions, leading to more realistic testing scenarios.
+
+10. Collaboration and Knowledge Sharing
+
+	•	AI-Driven Documentation: GenAI tools can automatically generate or update test documentation, summaries, and reports by analyzing test results and logs. This helps ensure that documentation stays up to date with the latest test outcomes.
+	•	Enhanced Collaboration: GenAI-based tools can facilitate better communication between teams by automatically translating technical issues into non-technical language, making it easier for cross-functional teams to understand and collaborate on resolving issues.
+
+11. Predictive Analytics and Decision-Making
+
+	•	Defect Prediction: GenAI can predict the likelihood of defects in specific areas of the application based on historical data, code complexity, developer behavior, or past bugs. This allows teams to focus their testing efforts more strategically.
+	•	Release Readiness Assessment: By analyzing multiple factors such as test coverage, defect trends, and code quality metrics, GenAI can provide insights into the overall readiness of a release, helping stakeholders make informed decisions.
+
+Summary
+
+GenAI has revolutionized software testing by making it more efficient, intelligent, and adaptive. It has automated repetitive tasks, improved defect detection, enhanced test coverage, and optimized test execution processes. With GenAI, QA teams can focus more on strategic activities and creative problem-solving, leading to faster releases, better software quality, and improved user satisfaction. As GenAI continues to evolve, it will likely bring even more innovations to the field of software testing.
+
+=============================================================================================
+
+
+Kubectl - interact with cluster
+Kubeadm - initiate the api server (Minikube takes care internally)
+Hashicorp Vault
+
+kinds: Job, pod, deployment
+To view current namespace: kubectl config view --minify | grep namespace
+
+Pod states: Pending, running, succeeded, failed
+Pending to failed state errors: crashloopbackOff (memory or cpu issues), imagepullbackoff (unable to find image)
+Running to failed state errors: exitStatus, 
+
+
+
+
+
+Kubernetes Playground: 'play with k8s' online
+
+1. Initializes cluster master node:
+kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
+
+kubeadm join 192.168.0.7:6443 --token 0bhfbp.pzmamhhzlrtky12h \
+        --discovery-token-ca-cert-hash sha256:08ff468f3883198f6cd8eec1dd93f921b1142bda63a936e334170d0e57604296
+
+2. Initialize cluster networking:
+kubectl apply -f https://raw.githubusercontent.com/cloudnativelabs/kube-router/master/daemonset/kubeadm-kuberouter.yaml
+
+3. (Optional) Create an nginx deployment:
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/nginx-app.yaml
+
+
+
+Automated around 65 webUI regression test cases using TestCafe for personal banking in SIT environment while at Lloyds Banking Group. Other node based frameworks worked upon: Playwright, Cypress, WebdriverIO. Implemented framework from scratch using cucumber.
+
+Performed non-functional testing for a bunch of performance test cases using Apache jMeter. Response of various RESTFul APIs noted with different loads in multiple iterations.
+
+Written python unit tests using pytest for unit testing coverage. Automated API test cases using requests library in a backed framework. Used python3 to test integrity of messages between client and server kafka servers.
+
+CI/CD using Groovy pipeline scripts in Jenkins for running the builds across 3 operating systems and 4 different architectures. Implemented nightly jobs and reporting to an automated mail server.
+
+Experienced using various AWS services for manual checks, monitoring and cloud validations. These services include: S3, EKS, CloudWatch, Kafka, Mongo DB
+
+
+
+I'm looking for an experienced Lead QA to work with a FinTech who possesses strong critical thinking, a holistic approach to quality, demonstrates exceptional stakeholder management and a passion for exploratory testing. 
+Reach out if the below described you: 
+Proven ability to uncover hidden issues through in-depth exploratory testing.
+A mindset geared towards asking “what if” questions, thinking critically about complex scenarios, and identifying system vulnerabilities.
+Comfortable rapidly adapting to new systems, recognising patterns, and pinpointing potential points of failure.
+Proficient in deconstructing systems to examine components, with strong experience in UI, API, and integration testing.
+Skilled in developing scenarios that test software to its limits and in prioritizing testing based on risk.
+Experienced in empowering team members, fostering a collaborative culture, and guiding the team in testing best practices.
+I'll be submitting CVs by no later than tomorrow morning with only 4 applicants being taken into process. 
+
+
+WHJ ND4 5PW
+Hey Ellousie, Hope you are doing well and have had a great weekend. Writing to you today to request to consider my profile for the QA position that you've posted for York location. I am immediately available to join, ready to relocate, no sponsorship required. Can discuss over a call: 07776609158
+https://www.linkedin.com/in/suprith-gangawar-1a2b4546
+
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+# Initialize the WebDriver (e.g., for Chrome)
+driver = webdriver.Chrome()
+
+try:
+    # Open the webpage
+    driver.get("http://example.com/register")
+    # Wait until the form elements are available (adjust timeout as needed)
+    WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "username"))  # Change this locator to fit the actual form
+    )
+
+    # Fill in the form fields
+    username = driver.find_element(By.ID, "username")  # Adjust the locator to fit your form
+    username.send_keys("new_user")
+
+    email = driver.find_element(By.ID, "email")  # Adjust the locator to fit your form
+    email.send_keys("new_user@example.com")
+
+    password = driver.find_element(By.ID, "password")  # Adjust the locator to fit your form
+    password.send_keys("SecurePassword123")
+
+    confirm_password = driver.find_element(By.ID, "confirm_password")  # Adjust the locator to fit your form
+    confirm_password.send_keys("SecurePassword123")
+
+    # Submit the form
+    submit_button = driver.find_element(By.ID, "submit")  # Adjust the locator to fit your form
+    submit_button.click()
+
+    # Wait for some condition that indicates success (e.g., redirect to a new page or a success message)
+    WebDriverWait(driver, 10).until(
+        EC.url_changes("http://example.com/register")  # Adjust the URL or condition to fit your use case
+    )
+
+    print("User created successfully!")
+
+except Exception as e:
+    print(f"An error occurred: {e}")
+
+finally:
+    # Close the browser
+    time.sleep(5)  # Optional: Wait a few seconds to observe the result
+    driver.quit()
+
+
+
+
+
+
+
+
+
+
+
+"accessToken": "26f68bbc3a8087e8ec65fdc2a2201aecdad2885f6e2782091053b0ab5c75ec98"
+Account Id: 654654372871
+
+
+Data tables and scenario outline
+Mouse hover actions
+testNG annotations
+Pre-conditions & post-conditions
+
+REST?
+yevheniia.perederii@gt-hq.com
+RS6025454
+eAdmissions Username: gangaw0001.uso
+
+Houseful:
+Specflow, API focused, Azure DevOps
+
+I {Suprith Gangawar}AGREE to submit my profile for the role of {Automation Test Engineer }, with the period of { Permanent  } role with the client { Atmecs,UK } at the location {Hybrid/ Milton Keynes ) for the Pay is {40,000 GBP Per annum }
+
+
+
+
+
+
+
+
+
+50 Hertz - 11 Oct 2024
+* Introduction
+* Deploy & scale stage is the project
+* My Intro
+* Out of the box thinking
+* Critic the process if possible..
+* Kubernetes angle?
+* technical and Greenfield approach questions
+* No 2nd round possible
+* problem solving example
+* ICE - Infra Core Engine
+* Organisational questions
+
+
+{
+  "appium:automationName": "UIAutomator2",
+  "platformName": "Android",
+  "appium:deviceName": "Android Emulator",
+  "appium:app": "/Users/suprithguk/Downloads/fb.apk"
+}
+
+
+{
+  "appium:automationName": "XCUITest",
+  "platformName": "iOS",
+  "appium:platformVersion": "18.0",
+  "appium:deviceName": "iPhone 16 Pro",
+  "appium:app": "/Users/suprithguk/Library/Developer/Xcode/DerivedData/UIKitCatalog-gfpkynqoyzaysscpppcwwhyjnhil/Build/Products/Debug-iphonesimulator/UIKitCatalog.app"
+}
+
+
+
+
+
+
+
+
+Network sockets
+Do you need default gateway? Why?
+Copy lists?
+
+
+
+
+Futurae - 17th Oct 2024
+* BAC - Broken Access Control
+* Security Misconfiguration
+* SSRF
+* Security Logging and Monitoring Failures
+* Injection
+* Insecure Design
+
+
+substack?
+
+bitrise
+Appcenter
+
+Banking: GO
+Web Team: Ruby, JS
+Mobile: Kotlin 
+DevOps: 
+Data: Python
+Tech team 40, 60 in all
+GCP - argoCD, terraform, 
+
+Test strategy, revamp the CI, documenting things
+
+(almost)
+Greenfield project
+
+QR Code in mobile tests
+Flaky tests
+Push notifications
+
+
+
+
+
+
+
+
+
+AQA:
+Role is in Data Insights
+Functionality of screens
+
+
+Guildford & Manchester
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

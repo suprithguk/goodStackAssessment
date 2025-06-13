@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on darwin)" generated="2025-06-12T17:24:42.545923" rpa="false" schemaversion="5">
+<suite id="s1" name="&quot;Test cases suite for ip_print&quot;" source="/Users/suprithguk/automation/goodStackAssessment/ipPrintTestCases.robot">
+<test id="s1-t1" name="TC1" line="6">
+<kw name="Test Ip print with input1.json" owner="keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.565066" level="INFO">Starting process:
+python3 ip_print.py input1.json</msg>
+<msg time="2025-06-12T17:24:42.567037" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.600443" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.600609" level="INFO">${var1} = &lt;result object with rc 0&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>${INPUT1}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.562845" elapsed="0.037781"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.601154" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.600819" elapsed="0.000357"/>
+</kw>
+<tag>functional</tag>
+<tag>input1</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-06-12T17:24:42.562655" elapsed="0.038569"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.562484" elapsed="0.038835"/>
+</test>
+<test id="s1-t2" name="TC2" line="9">
+<kw name="Test Ip Print With input2.json" owner="keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.601759" level="INFO">Starting process:
+python3 ip_print.py input2.json</msg>
+<msg time="2025-06-12T17:24:42.603433" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.619302" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.619466" level="INFO">${var1} = &lt;result object with rc 0&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>${INPUT2}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.601666" elapsed="0.017814"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.619961" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.619636" elapsed="0.000351"/>
+</kw>
+<tag>functional</tag>
+<tag>input2</tag>
+<tag>smoke</tag>
+<status status="PASS" start="2025-06-12T17:24:42.601576" elapsed="0.018454"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.601405" elapsed="0.018714"/>
+</test>
+<test id="s1-t3" name="TC3" line="12">
+<kw name="Test File Not Found Error" owner="keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.620601" level="INFO">Starting process:
+python3 ip_print.py non_existent.json</msg>
+<msg time="2025-06-12T17:24:42.622162" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.638836" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.638968" level="INFO">${var1} = &lt;result object with rc 1&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>${NON_EXISTENT_FILE}</arg>
+<arg>stderr=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.620444" elapsed="0.018536"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${var1.stdout}</arg>
+<arg>Error: The file 'non_existent.json' was not found.</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.639126" elapsed="0.000287"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.639594" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.639450" elapsed="0.000162"/>
+</kw>
+<tag>fileNotFound</tag>
+<status status="PASS" start="2025-06-12T17:24:42.620360" elapsed="0.019291"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.620200" elapsed="0.019525"/>
+</test>
+<test id="s1-t4" name="TC4" line="15">
+<kw name="Test Missing Required Keys" owner="keywords">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.640237" level="INFO" html="true">Created file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/missing_keys.json"&gt;/Users/suprithguk/automation/goodStackAssessment/missing_keys.json&lt;/a&gt;'.</msg>
+<msg time="2025-06-12T17:24:42.640263" level="INFO">${MISSING_KEYS} = None</msg>
+<var>${MISSING_KEYS}</var>
+<arg>missing_keys.json</arg>
+<arg>{"vm_private_ips": {"sensitive": false, "type": "map"}}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.640028" elapsed="0.000241"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.640393" level="INFO">Starting process:
+python3 ip_print.py missing_keys.json</msg>
+<msg time="2025-06-12T17:24:42.641864" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.657876" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.658004" level="INFO">${var1} = &lt;result object with rc 1&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>missing_keys.json</arg>
+<arg>stderr=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.640303" elapsed="0.017713"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${var1.stdout}</arg>
+<arg>Error: The required 'vm_private_ips' or 'value' key is missing.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.658156" elapsed="0.000277"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.658621" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.658470" elapsed="0.000171"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.658799" level="INFO" html="true">Removed file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/missing_keys.json"&gt;/Users/suprithguk/automation/goodStackAssessment/missing_keys.json&lt;/a&gt;'.</msg>
+<arg>missing_keys.json</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.658672" elapsed="0.000141"/>
+</kw>
+<tag>missingKeys</tag>
+<status status="PASS" start="2025-06-12T17:24:42.639951" elapsed="0.018890"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.639799" elapsed="0.019118"/>
+</test>
+<test id="s1-t5" name="TC5" line="18">
+<kw name="Test Malformed Json" owner="keywords">
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.659556" level="INFO" html="true">Created file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/malformed.json"&gt;/Users/suprithguk/automation/goodStackAssessment/malformed.json&lt;/a&gt;'.</msg>
+<arg>${MALFORMED_JSON}</arg>
+<arg>"invalid_json": true,</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.659212" elapsed="0.000365"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.659716" level="INFO">Starting process:
+python3 ip_print.py malformed.json</msg>
+<msg time="2025-06-12T17:24:42.661413" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.676529" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.676717" level="INFO">${var1} = &lt;result object with rc 1&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>${MALFORMED_JSON}</arg>
+<arg>stderr=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.659618" elapsed="0.017115"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${var1.stdout}</arg>
+<arg>Error: The file 'malformed.json' contains invalid JSON.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.676871" elapsed="0.000284"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.677356" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.677200" elapsed="0.000176"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.677543" level="INFO" html="true">Removed file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/malformed.json"&gt;/Users/suprithguk/automation/goodStackAssessment/malformed.json&lt;/a&gt;'.</msg>
+<arg>${MALFORMED_JSON}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.677407" elapsed="0.000151"/>
+</kw>
+<tag>malformedJson</tag>
+<status status="PASS" start="2025-06-12T17:24:42.659142" elapsed="0.018448"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.658998" elapsed="0.018668"/>
+</test>
+<test id="s1-t6" name="TC6" line="21">
+<kw name="Test Empty File" owner="keywords">
+<kw name="Touch" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.678427" level="INFO" html="true">Touched new file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/empty.json"&gt;/Users/suprithguk/automation/goodStackAssessment/empty.json&lt;/a&gt;'.</msg>
+<arg>${EMPTY_JSON}</arg>
+<doc>Emulates the UNIX touch command.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.678076" elapsed="0.000381"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.678584" level="INFO">Starting process:
+python3 ip_print.py empty.json</msg>
+<msg time="2025-06-12T17:24:42.680534" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.696245" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.696376" level="INFO">${var1} = &lt;result object with rc 1&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<arg>${EMPTY_JSON}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.678508" elapsed="0.017878"/>
+</kw>
+<kw name="File Should Be Empty" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.696682" level="INFO" html="true">File '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/empty.json"&gt;/Users/suprithguk/automation/goodStackAssessment/empty.json&lt;/a&gt;' is empty.</msg>
+<arg>${EMPTY_JSON}</arg>
+<doc>Fails unless the specified file is empty.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.696523" elapsed="0.000176"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${var1.stdout}</arg>
+<arg>Error: The file 'empty.json' contains invalid JSON.</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.696734" elapsed="0.000201"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.697103" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.696966" elapsed="0.000156"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-06-12T17:24:42.697245" level="INFO" html="true">Removed file '&lt;a href="file:///Users/suprithguk/automation/goodStackAssessment/empty.json"&gt;/Users/suprithguk/automation/goodStackAssessment/empty.json&lt;/a&gt;'.</msg>
+<arg>${EMPTY_JSON}</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.697150" elapsed="0.000109"/>
+</kw>
+<tag>emptyJson</tag>
+<status status="PASS" start="2025-06-12T17:24:42.677939" elapsed="0.019348"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.677746" elapsed="0.019617"/>
+</test>
+<test id="s1-t7" name="TC7" line="24">
+<kw name="Test Without File" owner="keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-06-12T17:24:42.697703" level="INFO">Starting process:
+python3 ip_print.py</msg>
+<msg time="2025-06-12T17:24:42.699206" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-06-12T17:24:42.717834" level="INFO">Process completed.</msg>
+<msg time="2025-06-12T17:24:42.717980" level="INFO">${var1} = &lt;result object with rc 1&gt;</msg>
+<var>${var1}</var>
+<arg>python3</arg>
+<arg>${SCRIPT}</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.697649" elapsed="0.020343"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${var1.stdout}</arg>
+<arg>Usage: python3 ip_print.py FILENAME</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.718145" elapsed="0.000292"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-06-12T17:24:42.718624" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${var1.rc}</arg>
+<arg>1</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-06-12T17:24:42.718477" elapsed="0.000168"/>
+</kw>
+<tag>noFilePassed</tag>
+<status status="PASS" start="2025-06-12T17:24:42.697582" elapsed="0.021097"/>
+</kw>
+<status status="PASS" start="2025-06-12T17:24:42.697442" elapsed="0.021319"/>
+</test>
+<status status="PASS" start="2025-06-12T17:24:42.546605" elapsed="0.172361"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="7" fail="0" skip="0" id="s1" name="&quot;Test cases suite for ip_print&quot;">"Test cases suite for ip_print"</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

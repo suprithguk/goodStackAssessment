@@ -1,0 +1,7 @@
+"Variables"
+SCRIPT = "ip_print.py"
+INPUT1 = "input1.json"
+INPUT2 = "input2.json"
+NON_EXISTENT_FILE = "non_existent.json"
+MALFORMED_JSON = "malformed.json"
+EMPTY_JSON = "empty.json"
